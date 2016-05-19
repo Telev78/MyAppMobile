@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/background">
+
+    <LinearLayout android:id="@+id/linearLayout1" 
+        android:layout_height="wrap_content" 
+        android:layout_width="match_parent">
+        
+        
+        <ImageView
+            android:id="@+id/volumedetail_img"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:src="@drawable/couv" 
+            android:contentDescription="@string/cover"
+            android:layout_marginLeft="5dp" 
+            android:layout_marginTop="10dp" 
+            android:scaleType="fitXY" 
+            android:layout_marginRight="10dp" 
+            android:adjustViewBounds="true"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtVolDetailFullTitre"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/username"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" >
+        
+		<LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical" >
+            
+			<RelativeLayout 
+			    android:id="@+id/relativeLayout1" 
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="10dp"
+			    android:layout_marginRight="10dp">
+			    
+		     	<TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_name"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:id="@+id/lblVolDetailTitre"/>
+
+
+		     
+		    	<TextView
+                    android:id="@+id/txtVolDetailTitre"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_toRightOf="@id/lblVolDetailTitre"/>
+		    	
+		    	<TextView
+                    android:id="@+id/txtVolDetailTitreOriginal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailTitre" 
+                    android:layout_alignLeft="@id/lblVolDetailTitre"/>
+		    	
+		    	<TextView
+                    android:id="@+id/txtVolDetailParution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailTitreOriginal" 
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+		    	
+		    	<TextView
+                    android:id="@+id/txtVolDetailEditeur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailParution" 
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+		     
+                <TextView
+                    android:id="@+id/txtVolDetailType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailEditeur" 
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+                
+                <TextView android:id="@+id/txtVolDetailCategory" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginBottom="5dp" 
+                    android:textAppearance="?android:attr/textAppearanceMedium" 
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailType"
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+                <TextView
+                    android:id="@+id/txtVolDetailMagPrepub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailCategory"
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+                <TextView
+                    android:id="@+id/txtVolDetailCollection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailMagPrepub"
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+
+                <TextView
+                    android:id="@+id/txtVolDetailGenres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailCollection"
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+                
+                <TextView
+                    android:id="@+id/txtVolDetailPages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailGenres" 
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+                
+                <TextView
+                    android:id="@+id/txtVolDetailFormat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailPages" 
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+
+                <TextView
+                    android:id="@+id/txtVolDetailColorisation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailFormat" 
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+                
+                <TextView
+                    android:id="@+id/txtVolDetailPrix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailColorisation"
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+
+                <TextView
+                    android:id="@+id/txtVolDetailEAN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailPrix"
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+
+                <TextView
+                    android:id="@+id/txtVolDetailPublic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtVolDetailEAN"
+                    android:layout_alignLeft="@id/txtVolDetailTitre"/>
+		    <!--  
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_titreoriginal"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:layout_alignTop="@id/txtVolDetailTitreOriginal" 
+                    android:layout_toLeftOf="@id/txtVolDetailTitreOriginal"/>
+            -->
+
+		     	<TextView
+		     	    android:id="@+id/lblVolDetailParution"
+		     	    android:layout_width="150dp"
+		     	    android:layout_height="wrap_content"
+		     	    android:layout_alignTop="@id/txtVolDetailParution"
+		     	    android:layout_marginBottom="5dp"
+		     	    android:layout_toLeftOf="@id/txtVolDetailParution"
+		     	    android:text="@string/volume_parution"
+		     	    android:textAppearance="?android:attr/textAppearanceMedium"
+		     	    android:textStyle="bold"
+		     	    android:textColor="@color/black"
+		     	    />
+		     	
+		     	<TextView android:id="@+id/lblVolDetailEditeur"
+		     	    android:layout_width="150dp"
+		     	    android:layout_height="wrap_content"
+		     	    android:layout_alignTop="@id/txtVolDetailEditeur"
+		     	    android:layout_marginBottom="5dp"
+		     	    android:layout_toLeftOf="@id/txtVolDetailEditeur"
+		     	    android:text="@string/volume_editeur"
+		     	    android:textAppearance="?android:attr/textAppearanceMedium"
+		     	    android:textStyle="bold"
+		     	    android:textColor="@color/black" 
+		     	    />
+		     	<TextView
+                    android:id="@+id/lblVolDetailType"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailType"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailType"
+                    android:text="@string/volume_type"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+		     	
+		     	<TextView
+                    android:id="@+id/lblVolDetailCategory"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailCategory"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailCategory"
+                    android:text="@string/volume_category"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+		     	
+		     	<TextView
+                    android:id="@+id/lblVolDetailMagPrepub"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailMagPrepub"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailMagPrepub"
+                    android:text="@string/volume_magprepub"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+		     	
+		     	<TextView
+                    android:id="@+id/lblVolDetailCollection"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailCollection"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailCollection"
+                    android:text="@string/volume_collection"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+		     	
+		     	<TextView
+                    android:id="@+id/lblVolDetailGenres"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailGenres"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailGenres"
+                    android:text="@string/volume_genres"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+		     	
+		     	<TextView
+                    android:id="@+id/lblVolDetailPages"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailPages"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailPages"
+                    android:text="@string/volume_pages"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+		     	
+		     	<TextView
+                    android:id="@+id/lblVolDetailFormat"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailFormat"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailFormat"
+                    android:text="@string/volume_format"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+		     	
+		     	<TextView
+                    android:id="@+id/lblVolDetailColorisation"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailColorisation"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailColorisation"
+                    android:text="@string/volume_colorisation"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+		     	
+		     	<TextView
+                    android:id="@+id/lblVolDetailPrix"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailPrix"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailPrix"
+                    android:text="@string/volume_prix"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+		     	
+		     	<TextView
+                    android:id="@+id/lblVolDetailEAN"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailEAN"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailEAN"
+                    android:text="@string/volume_ean"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+		     	
+		     	<TextView
+                    android:id="@+id/lblVolDetailPublic"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/txtVolDetailPublic"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/txtVolDetailPublic"
+                    android:text="@string/volume_public"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+	             	                
+			</RelativeLayout>
+            
+	        
+
+ 			<TextView
+ 			    android:layout_width="fill_parent"
+ 			    android:layout_height="wrap_content"
+ 			    android:layout_marginBottom="5dp"
+ 			    android:layout_marginLeft="10dp"
+ 			    android:layout_marginRight="10dp"
+ 			    android:text="@string/volume_synopsis"
+ 			    android:textAppearance="?android:attr/textAppearanceMedium"
+ 			    android:textColor="@color/black"
+ 			    android:textStyle="bold" />
+ 			<TextView
+                android:id="@+id/txtVolDetailSynopsis"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black" />
+       
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

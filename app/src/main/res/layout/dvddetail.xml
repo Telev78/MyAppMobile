@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/background">
+
+    <LinearLayout
+        android:id="@+id/dvdlinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+        <ImageView
+            android:id="@+id/dvddetail_img"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:src="@drawable/couv" 
+            android:contentDescription="@string/cover"
+            android:layout_marginLeft="5dp" 
+            android:layout_marginTop="10dp" 
+            android:scaleType="fitXY" 
+            android:layout_marginRight="10dp" 
+            android:adjustViewBounds="true"/>
+
+        <LinearLayout
+            android:id="@+id/dvdlinearLayout5"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtDvdDetailFullTitre"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/username"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/dvdscrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" >
+        
+		<LinearLayout
+            android:id="@+id/dvdlinearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical" >
+            
+			<RelativeLayout 
+			    android:id="@+id/dvdrelativeLayout1" 
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="10dp"
+			    android:layout_marginRight="10dp">
+			    
+		     	<TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_name"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:id="@+id/lblDvdDetailTitre"/>
+
+
+		     
+		    	<TextView
+                    android:id="@+id/txtDvdDetailTitre"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_toRightOf="@id/lblDvdDetailTitre"/>
+		    	
+		    	<TextView
+                    android:id="@+id/txtDvdDetailTitreOriginal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtDvdDetailTitre" 
+                    android:layout_alignLeft="@id/lblDvdDetailTitre"/>
+		    	
+		    	<TextView
+                    android:id="@+id/txtDvdDetailParution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtDvdDetailTitreOriginal" 
+                    android:layout_alignLeft="@id/txtDvdDetailTitre"/>
+		    	
+		    	<TextView
+                    android:id="@+id/txtDvdDetailEditeur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtDvdDetailParution" 
+                    android:layout_alignLeft="@id/txtDvdDetailTitre"/>
+		     
+                <TextView
+                    android:id="@+id/txtDvdDetailType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtDvdDetailEditeur" 
+                    android:layout_alignLeft="@id/txtDvdDetailTitre"/>
+                
+                <TextView android:id="@+id/txtDvdDetailCategory" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginBottom="5dp" 
+                    android:textAppearance="?android:attr/textAppearanceMedium" 
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtDvdDetailType"
+                    android:layout_alignLeft="@id/txtDvdDetailTitre"/>
+                <TextView
+                    android:id="@+id/txtDvdDetailCollection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtDvdDetailCategory"
+                    android:layout_alignLeft="@id/txtDvdDetailTitre"/>
+
+                <TextView
+                    android:id="@+id/txtDvdDetailGenres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtDvdDetailCollection"
+                    android:layout_alignLeft="@id/txtDvdDetailTitre"/>
+
+                <TextView
+                    android:id="@+id/txtDvdDetailPrix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtDvdDetailGenres"
+                    android:layout_alignLeft="@id/txtDvdDetailTitre"/>
+
+                <TextView
+                    android:id="@+id/txtDvdDetailEAN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtDvdDetailPrix"
+                    android:layout_alignLeft="@id/txtDvdDetailTitre"/>
+
+                <TextView
+                    android:id="@+id/txtDvdDetailPublic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:layout_below="@id/txtDvdDetailEAN"
+                    android:layout_alignLeft="@id/txtDvdDetailTitre"/>
+		    
+		     	<TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_parution"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:layout_alignTop="@id/txtDvdDetailParution" 
+                    android:layout_toLeftOf="@id/txtDvdDetailParution"/>
+		     	
+		     	<TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_editeur"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:layout_alignTop="@id/txtDvdDetailEditeur" 
+                    android:layout_toLeftOf="@id/txtDvdDetailEditeur"/>
+                
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_type"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:layout_alignTop="@id/txtDvdDetailType" 
+                    android:layout_toLeftOf="@id/txtDvdDetailType"/>
+
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_category"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:layout_toLeftOf="@id/txtDvdDetailCategory" 
+                    android:layout_alignTop="@id/txtDvdDetailCategory"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_collection"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:layout_toLeftOf="@id/txtDvdDetailCollection" 
+                    android:layout_alignTop="@id/txtDvdDetailCollection"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_genres"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:layout_alignTop="@id/txtDvdDetailGenres" 
+                    android:layout_toLeftOf="@id/txtDvdDetailGenres"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_prix"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:layout_toLeftOf="@id/txtDvdDetailPrix" 
+                    android:layout_alignTop="@id/txtDvdDetailPrix"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_ean"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:layout_alignTop="@id/txtDvdDetailEAN" 
+                    android:layout_toLeftOf="@id/txtDvdDetailEAN"/>
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/volume_public"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" 
+                    android:layout_toLeftOf="@id/txtDvdDetailPublic" 
+                    android:layout_alignTop="@id/txtDvdDetailPublic"/>
+
+	             	                
+			</RelativeLayout>
+            
+	        
+
+ 			<TextView
+ 			    android:layout_width="fill_parent"
+ 			    android:layout_height="wrap_content"
+ 			    android:layout_marginBottom="5dp"
+ 			    android:layout_marginLeft="10dp"
+ 			    android:layout_marginRight="10dp"
+ 			    android:text="@string/volume_synopsis"
+ 			    android:textAppearance="?android:attr/textAppearanceMedium"
+ 			    android:textColor="@color/black"
+ 			    android:textStyle="bold" />
+ 			<TextView
+                android:id="@+id/txtDvdDetailSynopsis"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black" />
+       
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
