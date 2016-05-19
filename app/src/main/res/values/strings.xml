@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, TestActivity!</string>
+    <string name="app_name">Manga Santuary</string>
+    <string name="URL">http://www.manga-sanctuary.com/</string>
+    <string name="loginURL">forum/ucp.php?mode=login</string>
+    <string name="disconnect">forum/ucp.php?mode=logout&amp;sid=[SID]</string>
+    <string name="username">Utilisateur:</string>
+    <string name="password">Mdp:</string>
+	<string name="login_successful">Authentification réussi</string>
+	<string name="login_unsuccessful">Mauvais nom d\'utilisateur ou mot de passe</string>
+	<string name="get_user_info">Récupération des infos utilisateur</string>
+	<string name="authenticate">Authentification&#8230;</string>
+	<string name="bookscollection">Livres</string>
+
+	<string name="login">Se connecter</string>
+	<string name="fill_username_password">Veuillez remplir votre nom d\'utilisateur et/ou votre mot de passe</string>
+
+	<string name="welcome">Bienvenue, </string>
+	<string name="avatar">Avatar</string>
+	<string name="planning">Planning</string>
+	<string name="missing">Manquants</string>
+	<string name="books_collectionURL">collection/include/excel.php?id=[IDUSER]&amp;page=liste&amp;filtre_support=livres&amp;type_collec=ms&amp;type_collec=ms&amp;type_liste=</string>
+	<string name="vol">vol.</string>
+	<string name="flag">flag</string>
+	<string name="suivi">Incomplète</string>
+	<string name="complete">Complète</string>
+	<string name="non_suivi">Non suivie</string>
+	<string name="interrompu">Edition stoppée</string>
+	<string name="tous">Tous</string>
+	<string name="planningURL">collection.php?id=[IDUSER]&amp;page=planning&amp;type_collec=ms</string>
+	<string name="loading">Chargement &#8230;</string>
+	<string name="please_wait">Veuillez patienter</string>
+	<string name="cover">Couverture</string>
+	<string name="missingURL">collection.php?id=[IDUSER]&amp;page=liste_manquants&amp;type_collec=ms</string>
+
+	<string name="volume_name">Titre album : </string>
+	<string name="volume_type">Type :</string>
+	<string name="volume_category">Catégories :</string>
+	<string name="volume_magprepub">Mag. prépub. :</string>
+	<string name="volume_collection">Collection : </string>
+	<string name="volume_genres">Genres :</string>
+	<string name="volume_prix">Prix éditeur :</string>
+	<string name="volume_ean">Ean : </string>
+	<string name="volume_public">Public :</string>
+	<string name="volume_website">Site officiel :</string>
+	<string name="volume_synopsis">Résumé du tome :</string>
+	<string name="dvdcollection">DVD/BR</string>
+	<string name="dvd_collectionURL">collection/include/excel.php?id=[IDUSER]&amp;page=liste&amp;filtre_support=dvd&amp;type_collec=ms&amp;type_collec=ms&amp;type_liste=</string>
+	<string name="volume_parution">Parution :</string>
+	<string name="volume_editeur">Editeur :</string>
+	<string name="volume_titreoriginal">Autres titres :</string>
+	<string name="volume_pages">Nbr pages :</string>
+	<string name="volume_colorisation">Colorisation :</string>
+	<string name="volume_format">Format :</string>
+	<string name="fullplanning">Nouveautés</string>
+	<string name="change_date">Changer de mois</string>
+	<string name="fullPlanningURL">planning/?mois=[MONTH]&amp;annee=[YEAR]&amp;support=0&amp;editeur=&amp;pays=77&amp;nouvelles_series=1</string>
+</resources>
