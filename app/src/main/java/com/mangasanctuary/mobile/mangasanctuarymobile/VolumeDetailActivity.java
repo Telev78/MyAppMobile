@@ -1,8 +1,11 @@
 package com.mangasanctuary.mobile.mangasanctuarymobile;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.htmlcleaner.CleanerProperties;
 import org.htmlcleaner.ContentNode;
 import org.htmlcleaner.HtmlCleaner;
@@ -211,6 +214,22 @@ public class VolumeDetailActivity extends Activity {
 				Object[] info_nodes;
 				
 				VolumeItem item = user.getCurrentVolume();
+
+				String ADULT_XPATH = "//input[@name='adult']";
+				String AdultHTML;
+				info_nodes = node.evaluateXPath(ADULT_XPATH);
+				if (info_nodes.length > 0)
+				{	// Adult volume
+					ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+					postParameters.add(new BasicNameValuePair("adult","1"));
+					String url = ((TagNode)info_nodes[0]).getParent().getAttributeByName("action");
+					AdultHTML = CustomHttpClient.executeHttpPost(getString(R.string.URL) +  url, postParameters);
+
+					Log.i (getString(R.string.app_name), AdultHTML);
+
+					node = cleaner.clean(AdultHTML);
+				}
+
 				
 				String COVER_XPATH_BIG = "//div[@id='infos_generales_gauche']//div[@id='menu_fiche']//div[@id='image_serie']//a[@href]";
 				String COVER_XPATH = "//div[@id='infos_generales_gauche']//div[@id='menu_fiche']//div[@id='image_serie']//img[@src]";
@@ -279,8 +298,8 @@ public class VolumeDetailActivity extends Activity {
 					item.setFormat(((TagNode)info_nodes[7]).getText().toString());
 					item.setColorisation(((TagNode)info_nodes[8]).getText().toString());
 					item.setPrixEditeur(((TagNode)info_nodes[9]).getText().toString());
-					item.setEAN(((TagNode)info_nodes[10]).getText().toString());
-					item.setPublic(((TagNode)info_nodes[11]).getText().toString());
+					item.setEAN(((TagNode)info_nodes[11]).getText().toString());
+					item.setPublic(((TagNode)info_nodes[12]).getText().toString());
 					
 				}
 				

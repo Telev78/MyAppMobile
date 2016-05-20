@@ -34,7 +34,10 @@ public class VolumeAdapter extends ArrayAdapter<VolumeItem> {
 		editeur.setText (item.getEditeur());
 				
 		TextView date = (TextView)result.findViewById(R.id.ligneVolumeDate);
-		date.setText ((new SimpleDateFormat("dd/MM/yyyy")).format(item.getPlanningDate()));
+		if (item.getPlanningDate()==null)
+			date.setText(getContext().getString(R.string.NC));
+		else
+			date.setText ((new SimpleDateFormat("dd/MM/yyyy")).format(item.getPlanningDate()));
 				
 		return result;
 

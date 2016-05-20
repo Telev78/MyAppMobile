@@ -34,7 +34,7 @@
 	<string name="please_wait">Veuillez patienter</string>
 	<string name="cover">Couverture</string>
 	<string name="missingURL">collection.php?id=[IDUSER]&amp;page=liste_manquants&amp;type_collec=ms</string>
-
+	<string name="NC">NC</string>
 	<string name="volume_name">Titre album : </string>
 	<string name="volume_type">Type :</string>
 	<string name="volume_category">Catégories :</string>

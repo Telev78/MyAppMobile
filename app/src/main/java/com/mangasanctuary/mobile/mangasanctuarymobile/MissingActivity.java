@@ -290,13 +290,14 @@ public class MissingActivity extends Activity {
 				
 				info_nodes = node.evaluateXPath(MISSING_XPATH);
 				
-				if (info_nodes.length > 0) {
+					if (info_nodes.length > 0) {
 					int i = 0;
 					while (i < info_nodes.length) {
 						item = new VolumeItem();
 						
 						SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-						item.setPlanningDate(simpleDateFormat.parse(((TagNode)info_nodes[i]).getChildTags()[1].getText().toString()));
+						if (!((TagNode)info_nodes[i]).getChildTags()[1].getText().toString().equals("NC"))
+							item.setPlanningDate(simpleDateFormat.parse(((TagNode)info_nodes[i]).getChildTags()[1].getText().toString()));
 						
 						item.setNom(((TagNode)info_nodes[i]).getChildTags()[2].getChildTags()[0].getText().toString());
 						item.setURL(((TagNode)info_nodes[i]).getChildTags()[2].getChildTags()[0].getAttributeByName("href"));
