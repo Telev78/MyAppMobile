@@ -206,7 +206,7 @@ public class LoginActivity extends Activity {
         	
         	try {
         		String result = CustomHttpClient.executeHttpPost(getString(R.string.URL) +  getString(R.string.loginURL), postParameters);
-        		isAuthenticate = result.toLowerCase().contains("vous êtes maintenant connecté");
+        		isAuthenticate = result.toLowerCase().contains("vous êtes maintenant connecté") || result.toLowerCase().contains("Panneau de l’utilisateur");
         		//isAuthenticate = result.toLowerCase().contains("bienvenue <span>" + param[0].toLowerCase() + "</span>");
     	    	if(isAuthenticate){
     	    		publishProgress(getString(R.string.login_successful));
