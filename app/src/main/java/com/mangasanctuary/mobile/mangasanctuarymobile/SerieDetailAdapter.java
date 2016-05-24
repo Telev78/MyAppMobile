@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SerieDetailAdapter extends ArrayAdapter<VolumeItem> {
@@ -35,6 +36,17 @@ public class SerieDetailAdapter extends ArrayAdapter<VolumeItem> {
 		
 		TextView date = (TextView)result.findViewById(R.id.ligneSerieDetailDateAchat);
 		date.setText ((new SimpleDateFormat("dd/MM/yyyy")).format(serie.getDateAchat()));
+
+		ImageView image = (ImageView) result.findViewById(R.id.ligneSerieDetail_img);
+		if (serie.getImage() != null){
+			image.setImageBitmap(serie.getImage());
+		}
+		else{
+			String defaultCouv = getClass().getPackage().getName() + ":drawable/couv";
+			int rid = super.getContext().getResources().getIdentifier(defaultCouv, null, null);
+			image.setImageResource(rid);
+			image.setClickable(false);
+		}
 						
 		return result;
 

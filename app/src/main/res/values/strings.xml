@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, TestActivity!</string>
-    <string name="app_name">Manga Santuary</string>
+    <string name="app_name">Manga Sanctuary</string>
     <string name="URL">http://www.manga-sanctuary.com/</string>
     <string name="loginURL">forum/ucp.php?mode=login</string>
     <string name="disconnect">forum/ucp.php?mode=logout&amp;sid=[SID]</string>
@@ -43,6 +43,9 @@
 	<string name="volume_genres">Genres :</string>
 	<string name="volume_prix">Prix éditeur :</string>
 	<string name="volume_ean">Ean : </string>
+	<string name="volume_LieuAchat">Lieu d\'achat : </string>
+	<string name="volume_DateAchat">Date d\'achat :</string>
+	<string name="volume_PrixAchat">Prix d\'achat : </string>
 	<string name="volume_public">Public :</string>
 	<string name="volume_website">Site officiel :</string>
 	<string name="volume_synopsis">Résumé du tome :</string>

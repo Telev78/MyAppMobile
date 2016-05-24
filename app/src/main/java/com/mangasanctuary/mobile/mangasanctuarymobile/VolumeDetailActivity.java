@@ -227,7 +227,8 @@ public class VolumeDetailActivity extends Activity {
 
 					Log.i (getString(R.string.app_name), AdultHTML);
 
-					node = cleaner.clean(AdultHTML);
+					//node = cleaner.clean(AdultHTML);
+					node = cleaner.clean(CustomHttpClient.executeHttpGet(params[0], "UTF-8"));
 				}
 
 				

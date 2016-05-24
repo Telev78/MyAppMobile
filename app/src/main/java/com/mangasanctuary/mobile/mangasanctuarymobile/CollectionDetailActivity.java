@@ -283,6 +283,7 @@ public abstract class CollectionDetailActivity extends Activity {
 						item.setID(((TagNode)title_nodes[i]).getChildTags()[0].getAttributeByName("value").toString());
 						
 						item.setImageURL(((TagNode)details_nodes[i]).getChildTags()[0].getChildTags()[0].getAttributeByName("src").toString());
+						item.setImage(CustomHttpClient.downloadFile(item.getImageURL()));
 						
 						item.setLieuAchat(((TagNode)details_nodes[i]).getChildTags()[2].getChildTags()[13].getText().toString());
 						item.setPrixAchat(((TagNode)details_nodes[i]).getChildTags()[2].getChildTags()[17].getText().toString());

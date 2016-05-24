@@ -2,52 +2,111 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
    	android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" 
     android:background="@color/background">
-    
-    <TextView
-        android:id="@+id/ligneSerieDetailNom"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium" 
-        android:textColor="@color/block_login"
-        android:layout_marginLeft="2dp"/> 
 
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/ligneSerieDetail_img"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:src="@drawable/couv"
+        android:contentDescription="@string/cover"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:scaleType="fitXY"
+        android:layout_marginRight="10dp"
+        android:adjustViewBounds="true"/>
+
+    <LinearLayout android:id="@+id/linearLayout1"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/ligneSerieDetailLieuAchat"
-            android:layout_width="wrap_content"
+            android:id="@+id/ligneSerieDetailNom"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:textAppearance="?android:attr/textAppearanceSmall" 
-            android:layout_marginLeft="5dp"/> 
-            
-        
-        <TextView
-            android:id="@+id/ligneSerieDetailDateAchat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall" 
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp" 
-            android:gravity="right"/>
-
-        <TextView
-            android:id="@+id/ligneSerieDetailPrixAchat"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:gravity="right"
-            android:textAppearance="?android:attr/textAppearanceSmall" 
-            android:layout_marginRight="25dp" 
-            android:layout_toLeftOf="@id/ligneSerieDetailDateAchat"
-            android:layout_toRightOf="@id/ligneSerieDetailLieuAchat" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/block_login"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="5dp"/>
 
 
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="bottom"
+            android:layout_marginBottom="5dp">
 
-    </RelativeLayout>
 
+            <TextView
+                android:id="@+id/lblligneSerieDetailPrixAchat"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="@string/volume_PrixAchat"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <TextView
+                android:id="@+id/lblligneSerieDetailLieuAchat"
+                android:layout_width="100dp"
+                android:layout_below="@id/lblligneSerieDetailPrixAchat"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="@string/volume_LieuAchat"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <TextView
+                android:id="@+id/lblligneSerieDetailDateAchat"
+                android:layout_width="100dp"
+                android:layout_below="@id/lblligneSerieDetailLieuAchat"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="@string/volume_DateAchat"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+
+            <TextView
+                android:id="@+id/ligneSerieDetailPrixAchat"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="prix"
+                android:layout_toEndOf="@id/lblligneSerieDetailPrixAchat"
+                android:layout_toRightOf="@id/lblligneSerieDetailPrixAchat"/>
+
+            <TextView
+                android:id="@+id/ligneSerieDetailLieuAchat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_below="@id/ligneSerieDetailPrixAchat"
+                android:layout_marginBottom="5dp"
+                android:text="lieu"
+                android:layout_toEndOf="@id/lblligneSerieDetailLieuAchat"
+                android:layout_toRightOf="@id/lblligneSerieDetailLieuAchat"/>
+
+            <TextView
+                android:id="@+id/ligneSerieDetailDateAchat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginBottom="5dp"
+                android:text="date"
+                android:layout_below="@id/ligneSerieDetailLieuAchat"
+                android:layout_toEndOf="@id/lblligneSerieDetailDateAchat"
+                android:layout_toRightOf="@id/lblligneSerieDetailDateAchat"/>
+
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

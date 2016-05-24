@@ -290,7 +290,7 @@ public class MissingActivity extends Activity {
 				
 				info_nodes = node.evaluateXPath(MISSING_XPATH);
 				
-					if (info_nodes.length > 0) {
+				if (info_nodes.length > 0) {
 					int i = 0;
 					while (i < info_nodes.length) {
 						item = new VolumeItem();
