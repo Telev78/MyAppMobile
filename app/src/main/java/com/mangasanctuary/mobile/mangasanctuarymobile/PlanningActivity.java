@@ -308,7 +308,7 @@ public class PlanningActivity extends Activity {
 				
 				e.printStackTrace();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			} 
 			return null;

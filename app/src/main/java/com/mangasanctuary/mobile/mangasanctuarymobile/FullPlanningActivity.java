@@ -14,7 +14,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -154,29 +156,80 @@ public class FullPlanningActivity extends Activity {
        
     private void customizeDatePicker (View layout)
     {
+		DatePicker dp_mes = (DatePicker)layout.findViewById(R.id.dpResult);
 
-    	DatePicker datePicker = (DatePicker)layout.findViewById(R.id.dpResult);
-    	
-    	try {
-    	    Field f[] = datePicker.getClass().getDeclaredFields();
-    	    for (Field field : f) {
-    	        if (field.getName().equals("mDayPicker")) {
-    	            field.setAccessible(true);
-    	            Object dayPicker = new Object();
-    	            dayPicker = field.get(datePicker);
-    	            ((View) dayPicker).setVisibility(View.GONE);
-    	        }
-    	    }
-    	} catch (SecurityException e) {
-    	    Log.d("ERROR", e.getMessage());
-    	} catch (IllegalArgumentException e) {
-    	    Log.d("ERROR", e.getMessage());
-    	} catch (IllegalAccessException e) {
-    	    Log.d("ERROR", e.getMessage());
-    	}
-    		
-    
-    }
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+			int daySpinnerId = Resources.getSystem().getIdentifier("day", "id", "android");
+			if (daySpinnerId != 0)
+			{
+				View daySpinner = dp_mes.findViewById(daySpinnerId);
+				if (daySpinner != null)
+				{
+					daySpinner.setVisibility(View.GONE);
+				}
+			}
+
+			int monthSpinnerId = Resources.getSystem().getIdentifier("month", "id", "android");
+			if (monthSpinnerId != 0)
+			{
+				View monthSpinner = dp_mes.findViewById(monthSpinnerId);
+				if (monthSpinner != null)
+				{
+					monthSpinner.setVisibility(View.VISIBLE);
+				}
+			}
+
+			int yearSpinnerId = Resources.getSystem().getIdentifier("year", "id", "android");
+			if (yearSpinnerId != 0)
+			{
+				View yearSpinner = dp_mes.findViewById(yearSpinnerId);
+				if (yearSpinner != null)
+				{
+					yearSpinner.setVisibility(View.VISIBLE);
+				}
+			}
+		} else { //Older SDK versions
+			Field f[] = dp_mes.getClass().getDeclaredFields();
+			for (Field field : f)
+			{
+				if(field.getName().equals("mDayPicker") || field.getName().equals("mDaySpinner"))
+				{
+					field.setAccessible(true);
+					Object dayPicker = null;
+					try {
+						dayPicker = field.get(dp_mes);
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					}
+					((View) dayPicker).setVisibility(View.GONE);
+				}
+
+				if(field.getName().equals("mMonthPicker") || field.getName().equals("mMonthSpinner"))
+				{
+					field.setAccessible(true);
+					Object monthPicker = null;
+					try {
+						monthPicker = field.get(dp_mes);
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					}
+					((View) monthPicker).setVisibility(View.VISIBLE);
+				}
+
+				if(field.getName().equals("mYearPicker") || field.getName().equals("mYearSpinner"))
+				{
+					field.setAccessible(true);
+					Object yearPicker = null;
+					try {
+						yearPicker = field.get(dp_mes);
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					}
+					((View) yearPicker).setVisibility(View.VISIBLE);
+				}
+			}
+		}
+	}
 
     private String buildKey(int month, int year)
     {

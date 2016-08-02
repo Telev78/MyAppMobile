@@ -235,6 +235,7 @@ public class VolumeDetailActivity extends Activity {
 				String COVER_XPATH_BIG = "//div[@id='infos_generales_gauche']//div[@id='menu_fiche']//div[@id='image_serie']//a[@href]";
 				String COVER_XPATH = "//div[@id='infos_generales_gauche']//div[@id='menu_fiche']//div[@id='image_serie']//img[@src]";
 				String VOLUME_DETAIL_XPATH = "//div[@id='infos_generales_droite']//div[@id='infos']/dd";
+				String VOLUME_DETAIL_EXCLUDE_XPATH = "//div[@id='infos_generales_droite']//div[@id='infos']/dt";
 				String SYNOPSIS_XPATH = "//div[@id='infos_generales']/div[@id='infos_generales_droite']/div[@id='fiche_infos_supp']/div[@id='synopsis']/p";
 				String FULL_TITLE_XPATH = "//div[@id='contenu']/h1";
 				String ORIGINAL_TITLE_XPATH = "//div[@id='contenu']/div[@style]";
@@ -287,6 +288,12 @@ public class VolumeDetailActivity extends Activity {
 				}
 								
 				info_nodes = node.evaluateXPath(VOLUME_DETAIL_XPATH);
+				int ex = 6;
+				Object[] info_nodes_exclude = node.evaluateXPath(VOLUME_DETAIL_EXCLUDE_XPATH);
+				if (((TagNode)info_nodes_exclude[6]).getText().toString().toLowerCase().equals("thématiques :"))
+				{
+					ex+=1;
+				}
 				
 				if (info_nodes.length > 0) {
 					//item.setNom(((TagNode)info_nodes[0]).getText().toString());
@@ -295,12 +302,12 @@ public class VolumeDetailActivity extends Activity {
 					item.setMagPrepub(((TagNode)info_nodes[3]).getText().toString());
 					item.setCollection(((TagNode)info_nodes[4]).getText().toString());
 					item.setGenres(((TagNode)info_nodes[5]).getText().toString());
-					item.setPages(((TagNode)info_nodes[6]).getText().toString());
-					item.setFormat(((TagNode)info_nodes[7]).getText().toString());
-					item.setColorisation(((TagNode)info_nodes[8]).getText().toString());
-					item.setPrixEditeur(((TagNode)info_nodes[9]).getText().toString());
-					item.setEAN(((TagNode)info_nodes[11]).getText().toString());
-					item.setPublic(((TagNode)info_nodes[12]).getText().toString());
+					item.setPages(((TagNode)info_nodes[ex]).getText().toString());
+					item.setFormat(((TagNode)info_nodes[ex+1]).getText().toString());
+					item.setColorisation(((TagNode)info_nodes[ex+2]).getText().toString());
+					item.setPrixEditeur(((TagNode)info_nodes[ex+3]).getText().toString());
+					item.setEAN(((TagNode)info_nodes[ex+5]).getText().toString());
+					item.setPublic(((TagNode)info_nodes[ex+6]).getText().toString());
 					
 				}
 				
