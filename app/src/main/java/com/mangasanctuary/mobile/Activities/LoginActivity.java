@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Activities;
 
 import java.util.ArrayList;
 import org.apache.http.NameValuePair;
@@ -17,6 +17,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.mangasanctuary.mobile.Service.CustomHttpClient;
+import com.mangasanctuary.mobile.R;
+import com.mangasanctuary.mobile.Models.User;
 
 import org.htmlcleaner.CleanerProperties;
 import org.htmlcleaner.HtmlCleaner;

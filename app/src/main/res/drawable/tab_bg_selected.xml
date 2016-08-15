@@ -10,8 +10,8 @@
     <item  android:top="1dp" android:bottom="2dp" android:left="1dp" android:right="1dp">
 	    <shape android:shape="rectangle">
 	    	<gradient
-	            android:startColor="#ffffff"
-	            android:endColor="#ffc208"
+	            android:startColor="@color/white"
+	            android:endColor="@color/button_unpressed"
 	            android:angle="270"
 	            android:type="linear"/>
 	        <corners android:topLeftRadius="10dp" android:topRightRadius="10dp"/>

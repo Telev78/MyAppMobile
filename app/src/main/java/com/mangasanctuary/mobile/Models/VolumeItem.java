@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Models;
 
 import java.util.Date;
 

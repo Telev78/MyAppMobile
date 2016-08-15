@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Activities;
 
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
@@ -25,6 +25,12 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.mangasanctuary.mobile.Service.CustomHttpClient;
+import com.mangasanctuary.mobile.R;
+import com.mangasanctuary.mobile.Models.User;
+import com.mangasanctuary.mobile.Adapters.VolumeAdapter;
+import com.mangasanctuary.mobile.Models.VolumeItem;
 
 public class FullPlanningActivity extends Activity {
 	

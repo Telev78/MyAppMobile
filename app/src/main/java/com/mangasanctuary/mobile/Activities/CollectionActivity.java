@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Activities;
 
 import java.util.Arrays;
 
@@ -19,6 +19,14 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+
+import com.mangasanctuary.mobile.Models.AlphaSort;
+import com.mangasanctuary.mobile.Service.CustomHttpClient;
+import com.mangasanctuary.mobile.R;
+import com.mangasanctuary.mobile.Models.Serie;
+import com.mangasanctuary.mobile.Adapters.SerieAdapter;
+import com.mangasanctuary.mobile.Models.Statut;
+import com.mangasanctuary.mobile.Models.User;
 
 public abstract class CollectionActivity extends Activity {
 	

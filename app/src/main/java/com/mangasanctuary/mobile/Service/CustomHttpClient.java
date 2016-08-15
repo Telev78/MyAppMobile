@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Service;
 
 import java.io.BufferedReader;
 import java.io.IOException;

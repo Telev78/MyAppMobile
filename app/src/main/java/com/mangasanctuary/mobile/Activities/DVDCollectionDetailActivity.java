@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;

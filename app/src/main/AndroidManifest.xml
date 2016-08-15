@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mangasanctuary.mobile.mangasanctuarymobile">
+    package="com.mangasanctuary.mobile">
 
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="10"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -11,7 +11,7 @@
         android:theme="@android:style/Theme.NoTitleBar"
         android:allowBackup="false">
         <activity
-            android:name=".LoginActivity"
+            android:name="com.mangasanctuary.mobile.Activities.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,43 +20,43 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.mangasanctuary.mobile.Activities.MainActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".BooksCollectionActivity"
+            android:name="com.mangasanctuary.mobile.Activities.BooksCollectionActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".DVDCollectionActivity"
+            android:name="com.mangasanctuary.mobile.Activities.DVDCollectionActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".PlanningActivity"
+            android:name="com.mangasanctuary.mobile.Activities.PlanningActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".FullPlanningActivity"
+            android:name="com.mangasanctuary.mobile.Activities.FullPlanningActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".MissingActivity"
+            android:name="com.mangasanctuary.mobile.Activities.MissingActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".DVDCollectionDetailActivity"
+            android:name="com.mangasanctuary.mobile.Activities.DVDCollectionDetailActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".BooksCollectionDetailActivity"
+            android:name="com.mangasanctuary.mobile.Activities.BooksCollectionDetailActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".VolumeDetailActivity"
+            android:name="com.mangasanctuary.mobile.Activities.VolumeDetailActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".DVDDetailActivity"
+            android:name="com.mangasanctuary.mobile.Activities.DVDDetailActivity"
             android:label="@string/app_name" >
         </activity>
     </application>

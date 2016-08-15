@@ -17,7 +17,9 @@
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/logo" 
 	        android:layout_centerHorizontal="true"/>
-			
+	
+	
+	
 	    <RelativeLayout
 	        android:id="@+id/relativeLayout1"
 	        android:layout_width="match_parent"
@@ -70,11 +72,11 @@
 	            android:id="@+id/et_pw"
 	            android:layout_height="wrap_content"
 	            android:background="@android:drawable/editbox_background"
-	            android:password="true" 
-	            android:layout_alignRight="@id/et_un" 
+	            android:layout_alignRight="@id/et_un"
 	            android:layout_alignTop="@id/tv_pw" 
 	            android:layout_alignLeft="@id/et_un" 
-	            android:layout_width="match_parent"/>
+	            android:layout_width="match_parent"
+				android:inputType="textPassword"/>
 	    </RelativeLayout>
 	
 	    <Button
@@ -94,7 +96,7 @@
 	        android:layout_alignParentLeft="true"
 	        android:layout_below="@+id/btn_login"
 	        android:layout_marginTop="15dp"
-	        android:textColor="#AA0000"
+	        android:textColor="@color/error_message"
 	        android:textSize="7pt" 
 	        android:gravity="center_horizontal" 
 	        android:layout_marginLeft="5dp" 

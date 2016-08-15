@@ -1,8 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
-
-import java.util.ArrayList;
-
-import org.apache.http.NameValuePair;
+package com.mangasanctuary.mobile.Activities;
 
 import android.app.TabActivity;
 import android.content.Context;
@@ -12,6 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
+
+import com.mangasanctuary.mobile.R;
+import com.mangasanctuary.mobile.Models.User;
 
 public class MainActivity extends TabActivity  {
 	

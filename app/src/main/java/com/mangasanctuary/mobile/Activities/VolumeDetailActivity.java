@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Activities;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,6 +27,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mangasanctuary.mobile.Service.CustomHttpClient;
+import com.mangasanctuary.mobile.R;
+import com.mangasanctuary.mobile.Models.User;
+import com.mangasanctuary.mobile.Models.VolumeItem;
 
 public class VolumeDetailActivity extends Activity {
 	
@@ -149,7 +154,7 @@ public class VolumeDetailActivity extends Activity {
 			});
         }
         else{
-        	String defaultCouv = getClass().getPackage().getName() + ":drawable/couv";
+        	String defaultCouv = getString(R.string.defaultcover);
         	int rid = getResources().getIdentifier(defaultCouv, null, null);
         	image.setImageResource(rid);
         	image.setClickable(false);
@@ -170,7 +175,7 @@ public class VolumeDetailActivity extends Activity {
         if (img != null)
         	image.setImageBitmap(img);
         else{
-        	String defaultCouv = getClass().getPackage().getName() + ":drawable/couv";
+        	String defaultCouv = getString(R.string.defaultcover);
         	int rid = getResources().getIdentifier(defaultCouv, null, null);
         	image.setImageResource(rid);
         }

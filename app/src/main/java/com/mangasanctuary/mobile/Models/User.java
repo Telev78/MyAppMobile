@@ -1,8 +1,11 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Models;
 
 import java.util.Hashtable;
 
 import android.graphics.Bitmap;
+
+import com.mangasanctuary.mobile.Adapters.SerieAdapter;
+import com.mangasanctuary.mobile.Adapters.VolumeAdapter;
 
 public final class User {
 	private String _ID;
@@ -26,7 +29,7 @@ public final class User {
 		_fullplanning = new Hashtable<String, VolumeAdapter>();
 	}
 	
-	static User getInstance ()
+	public static User getInstance ()
 	{
 		if (_instance == null)
 			_instance = new User();

@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Activities;
 
 import java.text.SimpleDateFormat;
 
@@ -19,32 +19,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class PlanningActivity extends Activity {
+import com.mangasanctuary.mobile.Service.CustomHttpClient;
+import com.mangasanctuary.mobile.R;
+import com.mangasanctuary.mobile.Models.User;
+import com.mangasanctuary.mobile.Adapters.VolumeAdapter;
+import com.mangasanctuary.mobile.Models.VolumeItem;
+
+public class MissingActivity extends Activity {
 	
 	private static ProgressDialog dialog;
 	User user = User.getInstance();
 	@SuppressWarnings("rawtypes")
 	private AsyncTask T;
-	private ListView lstPlanning;
+	private ListView lstMissing;
 	
-	@SuppressWarnings({ "rawtypes" })
+	@SuppressWarnings("rawtypes")
 	@Override
     public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.volumes);
+	   
+	    lstMissing = (ListView) findViewById(R.id.lst_volumes);
+	    lstMissing.setOnItemClickListener(lstitemOnClick);
 	    
-	    lstPlanning = (ListView) findViewById(R.id.lst_volumes);
-	    lstPlanning.setOnItemClickListener(lstitemOnClick);
+	    String missingURL = getString(R.string.URL) + getString(R.string.missingURL);
+	    missingURL = missingURL.replace("[IDUSER]", user.getID());
 	    
-	    String planningURL = getString(R.string.URL) + getString(R.string.planningURL);
-	    planningURL = planningURL.replace("[IDUSER]", user.getID());
-	    
-	    Log.i (getString(R.string.app_name), planningURL);
+	    Log.i (getString(R.string.app_name), missingURL);
     	
     	// Check if the thread is already running
 		T = (AsyncTask) getLastNonConfigurationInstance();
@@ -53,16 +59,16 @@ public class PlanningActivity extends Activity {
 		}
 		else
 		{
-			if (user.getPlanning() == null)
+			if (user.getMissing() == null)
 				
-				T = new processPlanningTask().execute(planningURL);
+				T = new processMissingTask().execute(missingURL);
 				
 			else{
-				lstPlanning.setAdapter(user.getPlanning());
+				lstMissing.setAdapter(user.getMissing());
 			}
 		}
 	}
-	
+		
 	// dismiss dialog if activity is destroyed
 	@Override
 	protected void onDestroy() {
@@ -96,11 +102,11 @@ public class PlanningActivity extends Activity {
 			/*
 			user.setCurrentVolume(item);
 			
-			Intent i = new Intent(PlanningActivity.this, VolumeDetailActivity.class);
+			Intent i = new Intent(MissingActivity.this, VolumeDetailActivity.class);
 									
 			startActivity(i);
-			
 			*/
+			
 			if (item.getImage() == null)		
 				T = new processGetimageTask().execute(item);
 			else
@@ -122,7 +128,7 @@ public class PlanningActivity extends Activity {
         if (img != null)
         	image.setImageBitmap(img);
         else{
-        	String defaultCouv = getClass().getPackage().getName() + ":drawable/couv";
+        	String defaultCouv = getString(R.string.defaultcover);
         	int rid = getResources().getIdentifier(defaultCouv, null, null);
         	image.setImageResource(rid);
         }
@@ -181,7 +187,6 @@ public class PlanningActivity extends Activity {
 				 *		</div>
 				 */
 				
-
 				info_nodes = node.evaluateXPath(COVER_XPATH_BIG);
 				if (info_nodes.length > 0)
 				{
@@ -226,8 +231,8 @@ public class PlanningActivity extends Activity {
 		}
 		
 	}
-	
-	private class processPlanningTask extends AsyncTask<String, Void, Void>{
+
+	private class processMissingTask extends AsyncTask<String, Void, Void>{
 
 		@Override
 		protected Void doInBackground(String... params) {
@@ -244,7 +249,7 @@ public class PlanningActivity extends Activity {
 			cleaner.getProperties().setAdvancedXmlEscape(true);
 			
 			try {
-				Log.i (getString(R.string.app_name), "Start Parsing Planning");
+				Log.i (getString(R.string.app_name), "Start Parsing Missing");
 				node = cleaner.clean(CustomHttpClient.executeHttpGet(params[0], "UTF-8"));
 				
 				
@@ -252,63 +257,71 @@ public class PlanningActivity extends Activity {
 				
 				VolumeItem item;
 				
-				user.setPlanning(new VolumeAdapter(PlanningActivity.this,  R.layout.volume_listviewline));
+				user.setMissing(new VolumeAdapter(MissingActivity.this,  R.layout.volume_listviewline));
 				
-				String PLANNING_XPATH = "//table[@class='collection']//tr//td//input[@value]";
+				String MISSING_XPATH = "//table[@class='collection']//tr[@class]";
 				
 				/*
 				*<table class="collection">
-				*	<th width="20"></th>
-				*	<th width="80"><b>Date</b></th>
-				*	<th width="300"><b>Nom</b></th>
-				*	<th width="120"><b>Editeur</b></th>
-				*	<tr class="ligne_pair">
-				*		<td colspan="4" style="font-size:14px;font-weight:bold;"><br>Mars</td>
+				*	<th width="2%"></th>
+				*	<th width="10%"><b>Date</b></th>
+				*	<th width="40%"><b>Nom</b></th>
+				*	<th width="20%"><b>Editeur</b></th>
+				*	<th width="10%">Prix</th>
+				*	<th width="3%"></th>
+				*	<tr>
+				*		<td colspan="7" class="colonne"><br><span class="nom_serie_gros">F.Compo</span></td>
 				*	</tr>
-				*	
 				*	<tr class="ligne_pair">
 				*		<td><input type="checkbox" name="volume_54947" value="54947"></td>
-				*		<td>14/03/2012</td>
-				*		<td><a href="http://www.manga-sanctuary.com/manga-f-compo-vol-10-reedition-francaise-s78-p54947.html">F.Compo volume 10</a></td>
-				*		<td><a href="http://www.manga-sanctuary.com/fiche_editeur.php?id=10">Panini manga</a></td>
+				*		<td>14-03-2012</td>
+				*		<td><a href="http://www.manga-sanctuary.com/manga-f-compo-vol-10-reedition-francaise-s78-p54947.html">F.Compo T.10</a></td>
+				*		<td>Panini manga</td>
+				*		<td>10.1�</td>
+				*		<td></td>
+				*	</tr>
+				*	<tr>
+				*		<td colspan="7" class="colonne"><br><span class="nom_serie_gros">Saint Seiya Episode G</span></td>
 				*	</tr>
 				*	<tr class="ligne_impair">
 				*		<td><input type="checkbox" name="volume_54956" value="54956"></td>
-				*		<td>14/03/2012</td>
-				*		<td><a href="http://www.manga-sanctuary.com/manga-saint-seiya-episode-g-vol-18-simple-s1412-p54956.html">Saint Seiya Episode G volume 18</a></td>
-				*		<td><a href="http://www.manga-sanctuary.com/fiche_editeur.php?id=10">Panini manga</a></td>
+				*		<td>14-03-2012</td>
+				*		<td><a href="http://www.manga-sanctuary.com/manga-saint-seiya-episode-g-vol-18-simple-s1412-p54956.html">Saint Seiya Episode G T.18</a></td>
+				*		<td>Panini manga</td>
+				*		<td>9.1�</td>
+				*		<td></td>
 				*	</tr>
 				*</table>
 				*/
 				
-				info_nodes = node.evaluateXPath(PLANNING_XPATH);
+				info_nodes = node.evaluateXPath(MISSING_XPATH);
 				
 				if (info_nodes.length > 0) {
 					int i = 0;
 					while (i < info_nodes.length) {
 						item = new VolumeItem();
 						
-						SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-						item.setPlanningDate(simpleDateFormat.parse(((TagNode)info_nodes[i]).getParent().getParent().getChildTags()[1].getText().toString()));
+						SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+						if (!((TagNode)info_nodes[i]).getChildTags()[1].getText().toString().equals("NC"))
+							item.setPlanningDate(simpleDateFormat.parse(((TagNode)info_nodes[i]).getChildTags()[1].getText().toString()));
 						
-						item.setNom(((TagNode)info_nodes[i]).getParent().getParent().getChildTags()[2].getChildTags()[0].getText().toString());
-						item.setURL(((TagNode)info_nodes[i]).getParent().getParent().getChildTags()[2].getChildTags()[0].getAttributeByName("href"));
-						item.setEditeur(((TagNode)info_nodes[i]).getParent().getParent().getChildTags()[3].getChildTags()[0].getText().toString());
+						item.setNom(((TagNode)info_nodes[i]).getChildTags()[2].getChildTags()[0].getText().toString());
+						item.setURL(((TagNode)info_nodes[i]).getChildTags()[2].getChildTags()[0].getAttributeByName("href"));
+						item.setEditeur(((TagNode)info_nodes[i]).getChildTags()[3].getText().toString());
 						
 						Log.i (getString(R.string.app_name), item.getNom());
 						
-						user.getPlanning().add(item);
+						user.getMissing().add(item);
 						i++;
 					}
 				}
 				
-				Log.i (getString(R.string.app_name), "End Parsing Planning");
+				Log.i (getString(R.string.app_name), "End Parsing Missing");
 				
 			} catch (XPatherException e) {
 				
 				e.printStackTrace();
 			} catch (Exception e) {
-
 				e.printStackTrace();
 			} 
 			return null;
@@ -322,10 +335,11 @@ public class PlanningActivity extends Activity {
 		
 		@Override
 		protected void onPostExecute(Void value){
-			lstPlanning.setAdapter(user.getPlanning());
+			lstMissing.setAdapter(user.getMissing());
 			
 			dismissDialog();
 		}
 	}
+	
 	
 }

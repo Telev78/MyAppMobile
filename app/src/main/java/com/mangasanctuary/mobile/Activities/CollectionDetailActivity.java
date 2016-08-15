@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Activities;
 
 import java.text.SimpleDateFormat;
 
@@ -16,6 +16,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+
+import com.mangasanctuary.mobile.Service.CustomHttpClient;
+import com.mangasanctuary.mobile.R;
+import com.mangasanctuary.mobile.Models.Serie;
+import com.mangasanctuary.mobile.Adapters.SerieDetailAdapter;
+import com.mangasanctuary.mobile.Models.User;
+import com.mangasanctuary.mobile.Models.VolumeItem;
 
 public abstract class CollectionDetailActivity extends Activity {
 	

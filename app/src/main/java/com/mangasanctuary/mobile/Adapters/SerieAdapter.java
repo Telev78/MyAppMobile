@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Adapters;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,9 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mangasanctuary.mobile.R;
+import com.mangasanctuary.mobile.Models.Serie;
 
 public class SerieAdapter extends ArrayAdapter<Serie> implements Filterable {
 

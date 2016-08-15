@@ -8,4 +8,7 @@
     <color name="white">#ffffff</color>
     <color name="username">#E36F0A</color>
     <color name="black">#000000</color>
+    <color name="error_message">#AA0000</color>
+    <color name="button_pressed">#0088A5</color>
+    <color name="button_unpressed">#FFC208</color>
 </resources>

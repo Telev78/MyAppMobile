@@ -1,4 +1,4 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Adapters;
 
 import java.text.SimpleDateFormat;
 
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.mangasanctuary.mobile.R;
+import com.mangasanctuary.mobile.Models.VolumeItem;
 
 public class VolumeAdapter extends ArrayAdapter<VolumeItem> {
 

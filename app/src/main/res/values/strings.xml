@@ -13,7 +13,8 @@
 	<string name="get_user_info">Récupération des infos utilisateur</string>
 	<string name="authenticate">Authentification&#8230;</string>
 	<string name="bookscollection">Livres</string>
-
+	<string name="defaultcover">com.mangasanctuary.mobile:drawable/couv</string>
+	<string name="flagpath">com.mangasanctuary.mobile:drawable/flag_</string>
 	<string name="login">Se connecter</string>
 	<string name="fill_username_password">Veuillez remplir votre nom d\'utilisateur et/ou votre mot de passe</string>
 

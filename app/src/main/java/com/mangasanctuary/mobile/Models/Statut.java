@@ -1,6 +1,8 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Models;
 
 import android.content.Context;
+
+import com.mangasanctuary.mobile.R;
 
 public enum Statut {
 	Tous ("Tous"),
@@ -65,7 +67,7 @@ public enum Statut {
 			default : flag = "green"; break;
 		}
 		
-		String path = getClass().getPackage().getName() + ":drawable/flag_" + flag;
+		String path = _context.getString(R.string.flagpath) + flag;
 		return path;//getResources().getIdentifier(path, null, null);
 	}
 	

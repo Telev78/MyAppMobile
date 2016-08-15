@@ -10,8 +10,8 @@
         <shape android:shape="rectangle">
             <!--  <solid android:color="#ffc208" />-->
             <gradient
-                android:startColor="#ffffff"
-                android:endColor="#0088A5"
+                android:startColor="@color/white"
+                android:endColor="@color/button_pressed"
                 android:angle="270" />
             <corners android:topLeftRadius="10dp" android:topRightRadius="10dp"/>
         </shape>

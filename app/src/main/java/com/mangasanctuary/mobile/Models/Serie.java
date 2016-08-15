@@ -1,4 +1,6 @@
-package com.mangasanctuary.mobile.mangasanctuarymobile;
+package com.mangasanctuary.mobile.Models;
+
+import com.mangasanctuary.mobile.Adapters.SerieDetailAdapter;
 
 public final class Serie {
 	private String _nom;
