@@ -1,7 +1,10 @@
 package com.mangasanctuary.mobile.Activities;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.htmlcleaner.CleanerProperties;
 import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.TagNode;
@@ -261,39 +264,6 @@ public class MissingActivity extends Activity {
 				
 				String MISSING_XPATH = "//table[@class='collection']//tr[@class]";
 				
-				/*
-				*<table class="collection">
-				*	<th width="2%"></th>
-				*	<th width="10%"><b>Date</b></th>
-				*	<th width="40%"><b>Nom</b></th>
-				*	<th width="20%"><b>Editeur</b></th>
-				*	<th width="10%">Prix</th>
-				*	<th width="3%"></th>
-				*	<tr>
-				*		<td colspan="7" class="colonne"><br><span class="nom_serie_gros">F.Compo</span></td>
-				*	</tr>
-				*	<tr class="ligne_pair">
-				*		<td><input type="checkbox" name="volume_54947" value="54947"></td>
-				*		<td>14-03-2012</td>
-				*		<td><a href="http://www.manga-sanctuary.com/manga-f-compo-vol-10-reedition-francaise-s78-p54947.html">F.Compo T.10</a></td>
-				*		<td>Panini manga</td>
-				*		<td>10.1�</td>
-				*		<td></td>
-				*	</tr>
-				*	<tr>
-				*		<td colspan="7" class="colonne"><br><span class="nom_serie_gros">Saint Seiya Episode G</span></td>
-				*	</tr>
-				*	<tr class="ligne_impair">
-				*		<td><input type="checkbox" name="volume_54956" value="54956"></td>
-				*		<td>14-03-2012</td>
-				*		<td><a href="http://www.manga-sanctuary.com/manga-saint-seiya-episode-g-vol-18-simple-s1412-p54956.html">Saint Seiya Episode G T.18</a></td>
-				*		<td>Panini manga</td>
-				*		<td>9.1�</td>
-				*		<td></td>
-				*	</tr>
-				*</table>
-				*/
-				
 				info_nodes = node.evaluateXPath(MISSING_XPATH);
 				
 				if (info_nodes.length > 0) {
@@ -301,14 +271,11 @@ public class MissingActivity extends Activity {
 					while (i < info_nodes.length) {
 						item = new VolumeItem();
 						
-						SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-						if (!((TagNode)info_nodes[i]).getChildTags()[1].getText().toString().equals("NC"))
-							item.setPlanningDate(simpleDateFormat.parse(((TagNode)info_nodes[i]).getChildTags()[1].getText().toString()));
-						
-						item.setNom(((TagNode)info_nodes[i]).getChildTags()[2].getChildTags()[0].getText().toString());
-						item.setURL(((TagNode)info_nodes[i]).getChildTags()[2].getChildTags()[0].getAttributeByName("href"));
-						item.setEditeur(((TagNode)info_nodes[i]).getChildTags()[3].getText().toString());
-						
+						item.setNom(((TagNode)info_nodes[i]).getChildTags()[1].getChildTags()[0].getText().toString());
+						item.setURL(((TagNode)info_nodes[i]).getChildTags()[1].getChildTags()[0].getAttributeByName("href"));
+
+						getDetail(item);
+
 						Log.i (getString(R.string.app_name), item.getNom());
 						
 						user.getMissing().add(item);
@@ -326,6 +293,67 @@ public class MissingActivity extends Activity {
 			} 
 			return null;
 			
+		}
+
+		private Void getDetail (VolumeItem item)
+		{
+			HtmlCleaner cleaner = new HtmlCleaner();
+			TagNode node;
+
+			CleanerProperties props = cleaner.getProperties();
+			props.setAllowHtmlInsideAttributes(true);
+			props.setAllowMultiWordAttributes(true);
+			props.setRecognizeUnicodeChars(true);
+			props.setOmitComments(true);
+			cleaner.getProperties().setRecognizeUnicodeChars(true);
+			cleaner.getProperties().setAdvancedXmlEscape(true);
+
+			try {
+
+				Log.i (getString(R.string.app_name), "Start Parsing Volume Detail");
+				node = cleaner.clean(CustomHttpClient.executeHttpGet(item.getURL(), "UTF-8"));
+
+				Object[] info_nodes;
+
+				String ADULT_XPATH = "//input[@name='adult']";
+				String AdultHTML;
+				info_nodes = node.evaluateXPath(ADULT_XPATH);
+				if (info_nodes.length > 0)
+				{	// Adult volume
+					ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+					postParameters.add(new BasicNameValuePair("adult","1"));
+					String url = ((TagNode)info_nodes[0]).getParent().getAttributeByName("action");
+					AdultHTML = CustomHttpClient.executeHttpPost(getString(R.string.URL) +  url, postParameters);
+
+					Log.i (getString(R.string.app_name), AdultHTML);
+
+					//node = cleaner.clean(AdultHTML);
+					node = cleaner.clean(CustomHttpClient.executeHttpGet(item.getURL(), "UTF-8"));
+				}
+
+				String EDITEUR_XPATH = "//div[@id='contenu']/div[@id='infos_generales']/div[@id='infos_generales_droite']/div[@id='infos']/div[@style]//b";
+
+				info_nodes = node.evaluateXPath(EDITEUR_XPATH);
+
+				if (info_nodes.length == 2) {
+					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+					item.setPlanningDate(simpleDateFormat.parse(((TagNode)info_nodes[0]).getText().toString()));
+
+					item.setEditeur(((TagNode)info_nodes[1]).getText().toString());
+				}
+				else if (info_nodes.length == 1){
+					item.setEditeur(((TagNode)info_nodes[0]).getText().toString());
+				}
+
+
+
+			} catch (XPatherException e) {
+
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return null;
 		}
 		
 		@Override
